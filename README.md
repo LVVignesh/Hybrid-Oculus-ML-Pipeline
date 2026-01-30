@@ -18,19 +18,37 @@ The system follows a three-stage hybrid architecture:
 2. **Supervised Intelligence:** Injects discovered cluster labels back into a tuned **XGBoost Classifier** to enhance predictive accuracy.
 3. **Stability & Transparency:** Uses **Stratified K-Fold Cross-Validation** and **SHAP** to map the global and local impact of features.
 
-## 📊 Performance Metrics
+---
 
-| Metric | Value |
-| :--- | :--- |
-| **Mean ROC-AUC (5-Fold CV)** | **0.933** |
-| **Test ROC-AUC** | **0.924** |
-| **CV Standard Deviation** | **0.005** |
-| **Precision (Purchase Class)** | **0.75** |
+## 📊 Performance Metrics & Visualizations
+
+### 1. Model Reliability (ROC Curve)
+The model achieved a high level of discriminative power, successfully distinguishing between buyers and non-buyers.
+* **Test ROC-AUC: 0.924**
+
+![ROC Curve](https://raw.githubusercontent.com/LVVignesh/Hybrid-Oculus-ML-Pipeline/main/plots/roc_curve.png)
+
+### 2. Prediction Quality (Confusion Matrix)
+The confusion matrix shows strong performance in predicting the majority class, with targeted accuracy for the minority (purchase) class.
+
+![Confusion Matrix](https://raw.githubusercontent.com/LVVignesh/Hybrid-Oculus-ML-Pipeline/main/plots/confusion_matrix.png)
+
+### 3. Precision-Recall Trade-off
+Given the class imbalance, the PR Curve demonstrates how the model maintains precision even as we increase recall.
+
+![Precision-Recall Curve](https://raw.githubusercontent.com/LVVignesh/Hybrid-Oculus-ML-Pipeline/main/plots/precision_recall_curve.png)
+
+### 4. Explainable AI (SHAP Summary)
+Using SHAP, we "opened the black box" to see which features (Page Views, Duration, Exit Rates) most heavily influence the final purchase prediction.
+
+![SHAP Summary](https://raw.githubusercontent.com/LVVignesh/Hybrid-Oculus-ML-Pipeline/main/plots/shap_summary.png)
+
+---
 
 ## 🛠️ Key Features
 * **Robust Preprocessing:** Utilizes `RobustScaler` to handle outliers in behavioral session data.
 * **Automated Tuning:** Employs `RandomizedSearchCV` to mathematically optimize XGBoost hyperparameters.
-* **Explainable AI (XAI):** Integrated **SHAP** to satisfy the "Right to Explanation" requirements in modern AI ethics.
+* **Explainable AI (XAI):** Integrated **SHAP** to satisfy transparency requirements in modern AI ethics.
 * **Stratified Validation:** 5-Fold Stratified CV confirms the model does not "memorize" the majority class.
 
 ## 📂 Project Structure
