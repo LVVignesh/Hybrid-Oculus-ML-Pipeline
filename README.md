@@ -28,23 +28,17 @@ The system follows a three-stage hybrid architecture:
 | **Precision (Purchase Class)** | **0.75** |
 
 ## 🛠️ Key Features
-
 * **Robust Preprocessing:** Utilizes `RobustScaler` to handle outliers in behavioral session data.
-
 * **Automated Tuning:** Employs `RandomizedSearchCV` to mathematically optimize XGBoost hyperparameters.
-
 * **Explainable AI (XAI):** Integrated **SHAP** to satisfy the "Right to Explanation" requirements in modern AI ethics.
-
 * **Stratified Validation:** 5-Fold Stratified CV confirms the model does not "memorize" the majority class.
 
 ## 📂 Project Structure
-
+```text
 Hybrid-Oculus-ML-Pipeline/
 │
-├── Online_shoppers Project.py     
-├── online_shoppers_intention.csv 
-├── .gitignore                     
-├── LICENSE                        
-└── README.md                     
-
-Author: LV Vignesh | Status: Production-Ready | License: MIT
+├── Online_shoppers Project.py     # Master end-to-end pipeline script
+├── online_shoppers_intention.csv  # Raw dataset
+├── .gitignore                     # Python-specific ignore rules
+├── LICENSE                        # MIT Open Source License
+└── README.md                      # Project documentation
